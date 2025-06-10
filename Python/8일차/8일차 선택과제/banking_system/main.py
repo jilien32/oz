@@ -7,9 +7,11 @@ def main() -> None:
     # 여기에 코드를 작성하세요
     banking_service = BankingService()
     while True:
+        print("-----------------------------------")
         print("1. 사용자 추가")
         print("2. 사용자 찾기")
         print("3. 종료")
+        print("-----------------------------------")
         choice = input("선택: ")
         
         if choice == '1':

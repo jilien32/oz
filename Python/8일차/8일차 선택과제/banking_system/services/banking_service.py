@@ -23,7 +23,9 @@ class BankingService:
     def user_menu(self, username: str) -> None:
         user = self.find_user(username)
         while True:
+            print("-----------------------------------")
             print(f"사용자: {user.username}, 잔고: {user.account.get_balance()}")
+            print("-----------------------------------")
             print("1. 입금")
             print("2. 출금")
             print("3. 거래 내역 조회")
