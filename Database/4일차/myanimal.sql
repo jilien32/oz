@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS `myanimal`.`Pets` (
   `name` VARCHAR(45) NOT NULL,
   `species` VARCHAR(45) NULL,
   `breed` VARCHAR(45) NULL,
-FOREIGN KEY (`ownerID`) REFERENCES `myanimal`.`PetOwners` (`ownerID`));
+FOREIGN KEY (`ownerID`) REFERENCES `myanimal`.`PetOwners` (`ownerID`)
+);
 
 CREATE TABLE IF NOT EXISTS `myanimal`.`Rooms` (
   `roomID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
