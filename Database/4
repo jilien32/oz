@@ -1,0 +1,81 @@
+-- CREATE TABLE users (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     username VARCHAR(50) UNIQUE NOT NULL,
+--     password_hash VARCHAR(255) NOT NULL,
+--     email VARCHAR(100) UNIQUE,
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+-- );
+
+-- CREATE TABLE items (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT NOT NULL,  -- 판매자
+--     title VARCHAR(255) NOT NULL,
+--     description TEXT,
+--     price DECIMAL(10,2) NOT NULL,
+--     category_id INT,
+--     status ENUM('available', 'reserved', 'sold') DEFAULT 'available',
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+--     FOREIGN KEY (user_id) REFERENCES users(id),
+--     FOREIGN KEY (category_id) REFERENCES categories(id)
+-- );
+
+-- CREATE TABLE categories (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     name VARCHAR(50) UNIQUE NOT NULL
+-- );
+
+-- CREATE TABLE chats (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     item_id INT NOT NULL,
+--     buyer_id INT NOT NULL,
+--     seller_id INT NOT NULL,
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+--     FOREIGN KEY (item_id) REFERENCES items(id),
+--     FOREIGN KEY (buyer_id) REFERENCES users(id),
+--     FOREIGN KEY (seller_id) REFERENCES users(id)
+-- );
+
+-- CREATE TABLE messages (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     chat_id INT NOT NULL,
+--     sender_id INT NOT NULL,
+--     content TEXT NOT NULL,
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+--     FOREIGN KEY (chat_id) REFERENCES chats(id),
+--     FOREIGN KEY (sender_id) REFERENCES users(id)
+-- );
+
+-- CREATE TABLE transactions (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     item_id INT NOT NULL,
+--     buyer_id INT NOT NULL,
+--     seller_id INT NOT NULL,
+--     completed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+--     FOREIGN KEY (item_id) REFERENCES items(id),
+--     FOREIGN KEY (buyer_id) REFERENCES users(id),
+--     FOREIGN KEY (seller_id) REFERENCES users(id)
+-- );
+
+-- CREATE TABLE item_images (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     item_id INT NOT NULL,
+--     image_url VARCHAR(500) NOT NULL,  -- 또는 이미지 binary가 아니라 파일 경로/URL
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+--     FOREIGN KEY (item_id) REFERENCES items(id) ON DELETE CASCADE
+-- );
+
+-- CREATE TABLE wishlists (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT NOT NULL,
+--     item_id INT NOT NULL,
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+--     FOREIGN KEY (user_id) REFERENCES users(id),
+--     FOREIGN KEY (item_id) REFERENCES items(id),
+--     UNIQUE (user_id, item_id)  -- 한 유저가 같은 아이템을 여러 번 좋아요 못 하게
+-- );

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>음악 취향 설문조사</title>
+</head>
+<body>
+    <header>
+        <h1>음악 취향 설문조사</h1>
+        <p>아래 설문을 작성해주시면 감사하겠습니다.</p>
+    </header>
+    <hr>
+    <main>
+        <form>
+            <fieldset>
+                <legend>기본 정보</legend>
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" placeholder="본명을 입력하세요">
+                <br>
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요">
+            </fieldset>
+            <fieldset>
+                <legend>음악 취향</legend>
+                <p>주로 듣는 음악 장르는 무엇인가요?</p>
+                <input type="checkbox" id="pop" name="genre" value="pop">
+                <label for="pop">팝</label>
+                <input type="checkbox" id="rock" name="genre" value="rock">
+                <label for="rock">록</label>
+                <input type="checkbox" id="hiphop" name="genre" value="hiphop">
+                <label for="hiphop">힙합</label>
+                <input type="checkbox" id="jazz" name="genre" value="jazz">
+                <label for="jazz">재즈</label>
+                <input type="checkbox" id="classical" name="genre" value="classical">
+                <label for="classical">클래식</label>
+                <input type="checkbox" id="kpop" name="genre" value="kpop">
+                <label for="kpop">K-POP</label>
+                <input type="checkbox" id="etc" name="genre" value="etc">
+                <label for="etc">기타</label>
+
+                <p>음악을 주로 어디서 들으시나요?</p>
+                <input type="radio" id="streaming" name="platform" value="streaming">
+                <label for="streaming">스트리밍 서비스 (멜론, 스포티파이 등)</label><br>
+                <input type="radio" id="radio" name="platform" value="radio">
+                <label for="radio">라디오</label><br>
+                <input type="radio" id="download" name="platform" value="download">
+                <label for="download">다운로드 파일</label><br>
+                <input type="radio" id="cd" name="platform" value="cd">
+                <label for="cd">CD/LP 등 실물 음반</label>
+            </fieldset>
+            <fieldset>
+                <legend>기타 의견</legend>
+                <textarea rows="3" cols="30" name="comment" placeholder="추천하고 싶은 아티스트나 곡이 있다면 알려주세요."></textarea>
+            </fieldset>
+            <input type="submit" value="제출">
+        </form>
+    </main>
+    <hr>
+    <footer>
+        <p>설문에 응해주셔서 감사합니다!</p>
+    </footer>
+</body>
+</html>
