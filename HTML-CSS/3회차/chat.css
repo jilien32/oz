@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 유저 정보 */
+.user {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 16px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0 0 6px 6px;
+}
+
+.user__pic {
+    width: 50px;
+    height: 50px;
+    margin-right: 16px;
+    background-color: #FCC41F;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.user__nick {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.user__count {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 채팅 화면 */
+.chat-screen {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 채팅 입력 */
+.chat-form {
+    height: 140px;
+    background: rgba(255, 255, 255, 0.8);
+    border-top: 2px solid #ccc;
+    border-radius: 6px 6px 0 0;
+}
+
+.chat-form__field {
+    display: flex;
+    height: 100%;
+}
+
+.chat-form__msg {
+    flex-grow: 1;
+    font-size: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    resize: none;
+    background: transparent;
+    color: #333;
+}
+
+.chat-form__msg:focus {
+    outline: none;
+    background-color: rgba(255,255,255,0.95);
+}
+
+.chat-form__bt {
+    width: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background: #FCC41F;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.chat-form__bt:hover {
+    background: #f2b300;
+}
+
+.chat-form__bt:active {
+    background: #CB9D12;
+    transform: scale(0.98);
+}

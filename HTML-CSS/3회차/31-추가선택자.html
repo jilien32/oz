@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 더 알아보기</title>
+    <style>
+        /*
+        기호와 함께 사용하는 속성 선택자
+        * : 값의 포함 여부
+        ^ : 값의 시작 여부
+        $ : 값의 끝 여부
+        */
+        [width $= "0"]{
+            border: 5px dashed red;
+        }
+
+        p > em{
+            color: blue;
+        }
+
+        /*
+        뒤에 있는 형제들만 형제선택자 적용
+        */
+        #sam ~ img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/jeju.jpg" width="120" alt="제주">
+    <img src="images/jeju.jpg" width="120">
+    <img src="images/jeju.jpg" width="120" id="sam">
+    <p>제주특별자치도의 가장 큰 섬인 제주도는 대한민국에서 가장 큰 섬으로 면적이 1845.9 km2이며,</p>
+    <p>한라산의 화산 활동으로 만들어진 섬이다. 본섬인 제주도 외의 부속도서로는</p>
+    <p><em>가파도, 마라도, 비양도, 우도 등</em> 이 있으며, 전라남도와 가까운 추자도도 제주특별자치도에 속한다.</p>
+</body>
+</html>
