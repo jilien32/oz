@@ -1,1 +1,28 @@
-admin_info.yaml
+# 가상환경
+.venv/
+venv/
+
+# Pycache
+__pycache__/
+*.py[cod]
+
+# 환경변수 / 비밀키
+.env
+db.yaml
+secrets.yaml
+
+# 로그 / 임시파일
+*.log
+*.tmp
+
+# VSCode 설정
+.vscode/
+
+# macOS
+.DS_Store
+
+# Jupyter Notebook 체크포인트
+.ipynb_checkpoints/
+
+# Migration 폴더 (원하면 제외)
+migrations/
