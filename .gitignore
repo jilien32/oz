@@ -26,3 +26,7 @@ secrets.yaml
 
 # Migration 폴더 (원하면 제외)
 migrations/
+
+.gitignore
+/.idea/
+.idea/*

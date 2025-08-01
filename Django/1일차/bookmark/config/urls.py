@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.http import HttpResponse, Http404
 from django.urls import path
 from django.shortcuts import render, redirect
+from bookmark import views
 
 movie_list = [
     {'title': '파묘', 'director': '장재현'},
@@ -58,7 +59,6 @@ def movies(request):
     return render(request, 'movies.html', {'movie_list': movie_list})
 def movie_detail(request, index):
     if index > len(movie_list) - 1:
-        from django.http import Http404
         raise Http404
     movie = movie_list[index]
     context = {'movie': movie}
@@ -84,5 +84,7 @@ urlpatterns = [
     path('language/<str:lang>/', language),
     path('movies/', movies),
     path('movie/<int:index>/', movie_detail),
-    path('gugu/<int:num>/', gugu)
+    path('gugu/<int:num>/', gugu),
+    path('bookmark/', views.bookmark_list),
+    path('bookmark/<int:pk>/', views.bookmark_detail),
 ]
