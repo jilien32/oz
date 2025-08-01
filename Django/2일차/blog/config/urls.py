@@ -1,54 +1,23 @@
-"""
-URL configuration for config project.
+# config/urls.py
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.shortcuts import redirect, render
-from django.urls import include, path
-from django.views import View
-from django.views.generic import TemplateView, RedirectView
+from django.urls import path, include
 
-from blog import views, cb_views
-from member import views as member_views
-
-class AboutView(TemplateView):
-    template_name = 'about.html'
-
-class TestView(View):
-    def get(self, request):
-        return render(request, 'test_get.html')
-
-    def post(self, request):
-        return render(request, 'test_post.html')
-
+from todo.views import todo_list, todo_info, todo_create, todo_update, todo_delete
+from users import views as user_views
 
 urlpatterns = [
+    path('todo/', todo_list, name='todo_list'),
+    path('todo/create/', todo_create, name='todo_create'),
+    path('todo/<int:todo_id>/', todo_info, name='todo_info'),
+    path('todo/<int:todo_id>/update/', todo_update, name='todo_update'),
+    path('todo/<int:todo_id>/delete/', todo_delete, name='todo_delete'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/login/', user_views.login, name='login'),
+    path('accounts/signup/', user_views.sign_up, name='signup'),
 
-
-    path('', include('blog.urls')),
-    path('fb/', include('blog.fbv_urls')),
-
-    # auth
-    path('accounts/', include("django.contrib.auth.urls")),
-    path('signup/', member_views.sign_up, name='signup'),
-    path('login/', member_views.login, name='login'),
-
-    # path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
-    path('about', AboutView.as_view(), name='about'),
-    # path('redirect2/', lambda req: redirect('about')),
-    path('redirect/', RedirectView.as_view(pattern_name='about'), name='redirect'),
-    path('test/', TestView.as_view(), name='test'),
+    # CBV
+    path('cbv/', include('todo.urls')),
 ]
+

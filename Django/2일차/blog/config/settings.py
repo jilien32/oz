@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hcs5er@@5e$t_1wq49t7f2)^h+23)sy(dh#arsq(2wqsscv(!i'
+SECRET_KEY = 'django-insecure-vpn_o2_g9i*p2p$a)ird1o-%o_va%3+%$i^p#%$q_uf#c+d$th'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,25 +28,20 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-DJANGO_APPS = [
+# Application definition
+
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
-
-OWN_APPS = [
-    'blog',
-    'member',
-]
-
-THIRD_PARTY_APPS = [
+    # own
+    'todo',
+    'users',
     'django_extensions',
 ]
-
-INSTALLED_APPS = DJANGO_APPS + OWN_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,6 +62,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -124,12 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_DIR = BASE_DIR / 'static'
-
+STATIC_DIRS = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-    STATIC_DIR
+    STATIC_DIRS,
 ]
-
 STATIC_ROOT = BASE_DIR / '.static_root'
 
 # Default primary key field type
@@ -138,7 +132,6 @@ STATIC_ROOT = BASE_DIR / '.static_root'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# login
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/login/'
-LOGOUT_REDIRECT_URL = '/'
+# login / logout
+LOGIN_REDIRECT_URL = '/cbv/todo/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
